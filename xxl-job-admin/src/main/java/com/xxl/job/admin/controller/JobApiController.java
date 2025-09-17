@@ -114,5 +114,3 @@ public class JobApiController {
         return true;
     }
 }
-
-
