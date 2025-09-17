@@ -99,23 +99,15 @@ $(function(){
         errorClass : 'help-block',
         focusInvalid : true,
         rules : {
-            oldPassword : {
-                required : true ,
-                rangelength:[4,20]
-            },
             password : {
                 required : true ,
-                rangelength:[4,20]
+                rangelength:[4,50]
             }
         },
         messages : {
-            oldPassword : {
-                required : I18n.system_please_input +I18n.change_pwd_field_oldpwd,
-                rangelength : "密码长度限制为4~20"
-            },
             password : {
-                required : I18n.system_please_input +I18n.change_pwd_field_newpwd,
-                rangelength : "密码长度限制为4~20"
+                required : '请输入密码'  ,
+                rangelength : "密码长度限制为4~50"
             }
         },
         highlight : function(element) {

@@ -71,7 +71,7 @@ public class JobFailMonitorHelper {
 							}
 						}
 
-					} catch (Throwable e) {
+					} catch (Exception e) {
 						if (!toStop) {
 							logger.error(">>>>>>>>>>> xxl-job, job fail monitor thread error:{}", e);
 						}
@@ -79,7 +79,7 @@ public class JobFailMonitorHelper {
 
                     try {
                         TimeUnit.SECONDS.sleep(10);
-                    } catch (Throwable e) {
+                    } catch (Exception e) {
                         if (!toStop) {
                             logger.error(e.getMessage(), e);
                         }
@@ -102,7 +102,7 @@ public class JobFailMonitorHelper {
 		monitorThread.interrupt();
 		try {
 			monitorThread.join();
-		} catch (Throwable e) {
+		} catch (InterruptedException e) {
 			logger.error(e.getMessage(), e);
 		}
 	}

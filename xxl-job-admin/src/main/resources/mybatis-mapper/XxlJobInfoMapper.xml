@@ -86,7 +86,7 @@
 			</if>
 		</trim>
 		ORDER BY id DESC
-		LIMIT #{offset}, #{pagesize}
+		LIMIT #{pagesize} OFFSET #{offset}
 	</select>
 
 	<select id="pageListCount" parameterType="java.util.HashMap" resultType="int">
@@ -232,12 +232,9 @@
 		UPDATE xxl_job_info
 		SET
 			trigger_last_time = #{triggerLastTime},
-			trigger_next_time = #{triggerNextTime}
-			<if test="triggerStatus gte 0">
-			 , trigger_status = #{triggerStatus}
-			</if>
+			trigger_next_time = #{triggerNextTime},
+			trigger_status = #{triggerStatus}
 		WHERE id = #{id}
-		  AND trigger_status = 1
 	</update>
 
 </mapper>

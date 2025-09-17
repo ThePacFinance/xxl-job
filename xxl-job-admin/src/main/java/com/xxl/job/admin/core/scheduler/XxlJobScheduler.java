@@ -92,9 +92,7 @@ public class XxlJobScheduler  {
         }
 
         // set-cache
-        executorBiz = new ExecutorBizClient(address,
-                XxlJobAdminConfig.getAdminConfig().getAccessToken(),
-                XxlJobAdminConfig.getAdminConfig().getTimeout());
+        executorBiz = new ExecutorBizClient(address, XxlJobAdminConfig.getAdminConfig().getAccessToken());
 
         executorBizRepository.put(address, executorBiz);
         return executorBiz;

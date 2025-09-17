@@ -34,7 +34,7 @@ public interface XxlJobService {
 	 * @param jobInfo
 	 * @return
 	 */
-	public ReturnT<String> add(XxlJobInfo jobInfo, XxlJobUser loginUser);
+	public ReturnT<String> add(XxlJobInfo jobInfo);
 
 	/**
 	 * update job
@@ -42,7 +42,7 @@ public interface XxlJobService {
 	 * @param jobInfo
 	 * @return
 	 */
-	public ReturnT<String> update(XxlJobInfo jobInfo, XxlJobUser loginUser);
+	public ReturnT<String> update(XxlJobInfo jobInfo);
 
 	/**
 	 * remove job

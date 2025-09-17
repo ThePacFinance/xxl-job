@@ -81,7 +81,7 @@ public class JobLogFileCleanThread {
                             }
                         }
 
-                    } catch (Throwable e) {
+                    } catch (Exception e) {
                         if (!toStop) {
                             logger.error(e.getMessage(), e);
                         }
@@ -90,7 +90,7 @@ public class JobLogFileCleanThread {
 
                     try {
                         TimeUnit.DAYS.sleep(1);
-                    } catch (Throwable e) {
+                    } catch (InterruptedException e) {
                         if (!toStop) {
                             logger.error(e.getMessage(), e);
                         }

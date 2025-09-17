@@ -36,8 +36,7 @@ public class FrameLessXxlJobConfig {
         // init executor
         xxlJobExecutor = new XxlJobSimpleExecutor();
         xxlJobExecutor.setAdminAddresses(xxlJobProp.getProperty("xxl.job.admin.addresses"));
-        xxlJobExecutor.setAccessToken(xxlJobProp.getProperty("xxl.job.admin.accessToken"));
-        xxlJobExecutor.setTimeout(Integer.valueOf(xxlJobProp.getProperty("xxl.job.admin.timeout")));
+        xxlJobExecutor.setAccessToken(xxlJobProp.getProperty("xxl.job.accessToken"));
         xxlJobExecutor.setAppname(xxlJobProp.getProperty("xxl.job.executor.appname"));
         xxlJobExecutor.setAddress(xxlJobProp.getProperty("xxl.job.executor.address"));
         xxlJobExecutor.setIp(xxlJobProp.getProperty("xxl.job.executor.ip"));

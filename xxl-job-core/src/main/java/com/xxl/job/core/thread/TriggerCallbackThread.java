@@ -76,7 +76,7 @@ public class TriggerCallbackThread {
                                 doCallback(callbackParamList);
                             }
                         }
-                    } catch (Throwable e) {
+                    } catch (Exception e) {
                         if (!toStop) {
                             logger.error(e.getMessage(), e);
                         }
@@ -90,7 +90,7 @@ public class TriggerCallbackThread {
                     if (callbackParamList!=null && callbackParamList.size()>0) {
                         doCallback(callbackParamList);
                     }
-                } catch (Throwable e) {
+                } catch (Exception e) {
                     if (!toStop) {
                         logger.error(e.getMessage(), e);
                     }
@@ -111,7 +111,7 @@ public class TriggerCallbackThread {
                 while(!toStop){
                     try {
                         retryFailCallbackFile();
-                    } catch (Throwable e) {
+                    } catch (Exception e) {
                         if (!toStop) {
                             logger.error(e.getMessage(), e);
                         }
@@ -119,7 +119,7 @@ public class TriggerCallbackThread {
                     }
                     try {
                         TimeUnit.SECONDS.sleep(RegistryConfig.BEAT_TIMEOUT);
-                    } catch (Throwable e) {
+                    } catch (InterruptedException e) {
                         if (!toStop) {
                             logger.error(e.getMessage(), e);
                         }
@@ -139,7 +139,7 @@ public class TriggerCallbackThread {
             triggerCallbackThread.interrupt();
             try {
                 triggerCallbackThread.join();
-            } catch (Throwable e) {
+            } catch (InterruptedException e) {
                 logger.error(e.getMessage(), e);
             }
         }
@@ -149,7 +149,7 @@ public class TriggerCallbackThread {
             triggerRetryCallbackThread.interrupt();
             try {
                 triggerRetryCallbackThread.join();
-            } catch (Throwable e) {
+            } catch (InterruptedException e) {
                 logger.error(e.getMessage(), e);
             }
         }
@@ -173,7 +173,7 @@ public class TriggerCallbackThread {
                 } else {
                     callbackLog(callbackParamList, "<br>----------- xxl-job job callback fail, callbackResult:" + callbackResult);
                 }
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 callbackLog(callbackParamList, "<br>----------- xxl-job job callback error, errorMsg:" + e.getMessage());
             }
         }

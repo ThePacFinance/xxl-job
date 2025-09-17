@@ -18,11 +18,10 @@ public class ExecutorBizTest {
     // admin-client
     private static String addressUrl = "http://127.0.0.1:9999/";
     private static String accessToken = null;
-    private static int timeout = 3;
 
     @Test
     public void beat() throws Exception {
-        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken, timeout);
+        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
         // Act
         final ReturnT<String> retval = executorBiz.beat();
 
@@ -35,7 +34,7 @@ public class ExecutorBizTest {
 
     @Test
     public void idleBeat(){
-        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken, timeout);
+        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
 
         final int jobId = 0;
 
@@ -51,7 +50,7 @@ public class ExecutorBizTest {
 
     @Test
     public void run(){
-        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken, timeout);
+        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
 
         // trigger data
         final TriggerParam triggerParam = new TriggerParam();
@@ -74,7 +73,7 @@ public class ExecutorBizTest {
 
     @Test
     public void kill(){
-        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken, timeout);
+        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
 
         final int jobId = 0;
 
@@ -90,7 +89,7 @@ public class ExecutorBizTest {
 
     @Test
     public void log(){
-        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken, timeout);
+        ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
 
         final long logDateTim = 0L;
         final long logId = 0;

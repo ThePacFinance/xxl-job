@@ -65,7 +65,7 @@ public class JobCompleteHelper {
 				// wait for JobTriggerPoolHelper-init
 				try {
 					TimeUnit.MILLISECONDS.sleep(50);
-				} catch (Throwable e) {
+				} catch (InterruptedException e) {
 					if (!toStop) {
 						logger.error(e.getMessage(), e);
 					}
@@ -92,7 +92,7 @@ public class JobCompleteHelper {
 							}
 
 						}
-					} catch (Throwable e) {
+					} catch (Exception e) {
 						if (!toStop) {
 							logger.error(">>>>>>>>>>> xxl-job, job fail monitor thread error:{}", e);
 						}
@@ -100,7 +100,7 @@ public class JobCompleteHelper {
 
                     try {
                         TimeUnit.SECONDS.sleep(60);
-                    } catch (Throwable e) {
+                    } catch (Exception e) {
                         if (!toStop) {
                             logger.error(e.getMessage(), e);
                         }
@@ -127,7 +127,7 @@ public class JobCompleteHelper {
 		monitorThread.interrupt();
 		try {
 			monitorThread.join();
-		} catch (Throwable e) {
+		} catch (InterruptedException e) {
 			logger.error(e.getMessage(), e);
 		}
 	}

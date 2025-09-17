@@ -98,7 +98,16 @@ public class IpUtil {
 
     private static InetAddress getLocalAddress0() {
         InetAddress localAddress = null;
-        // 1、prefer filter NetworkInterface
+        try {
+            localAddress = InetAddress.getLocalHost();
+            InetAddress addressItem = toValidAddress(localAddress);
+            if (addressItem != null) {
+                return addressItem;
+            }
+        } catch (Throwable e) {
+            logger.error(e.getMessage(), e);
+        }
+
         try {
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
             if (null == interfaces) {
@@ -134,18 +143,6 @@ public class IpUtil {
         } catch (Throwable e) {
             logger.error(e.getMessage(), e);
         }
-
-        // 2、getLocalAddress
-        try {
-            localAddress = InetAddress.getLocalHost();
-            InetAddress addressItem = toValidAddress(localAddress);
-            if (addressItem != null) {
-                return addressItem;
-            }
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
-        }
-
         return localAddress;
     }
 

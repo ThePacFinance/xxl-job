@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -153,4 +155,9 @@ public class DateUtil {
         return c.getTime();
     }
 
+    public static Date calculateDeadline(Date nowTime, long timeoutInSeconds) {
+        Instant instant = nowTime.toInstant();
+        Instant deadlineInstant = instant.minus(timeoutInSeconds, ChronoUnit.SECONDS);
+        return Date.from(deadlineInstant);
+    }
 }
